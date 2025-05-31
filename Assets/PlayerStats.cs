@@ -4,6 +4,8 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Singleton { get; private set; }
 
+    private int money;
+
     void Awake()
     {
         if (Singleton == null)
@@ -13,15 +15,26 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SetMoney(20);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMoney(int value)
     {
-        
+        money = value;
+        UIManager.Singleton.UpdateMoneyUI(money);
     }
+
+    public void AddMoney(int value)
+    {
+        money += value;
+        UIManager.Singleton.UpdateMoneyUI(money);
+    }
+
+    public int GetMoney()
+    {
+        return (money);
+    }
+
 }

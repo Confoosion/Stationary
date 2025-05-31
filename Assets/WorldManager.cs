@@ -21,9 +21,11 @@ public class WorldManager : MonoBehaviour
     public void NewShift()
     {
         requirementTheme = (BoxDetailType)(Random.Range(0, System.Enum.GetNames(typeof(BoxDetailType)).Length));
+        Debug.Log(requirementTheme);
         SetNewRequirements(requirementTheme);
     }
 
+    // Should prob make this a coroutine cuz it can break if while loop is still going and then gets called again :/
     private void SetNewRequirements(BoxDetailType theme)
     {
         List<string> values = new List<string>();
@@ -31,11 +33,11 @@ public class WorldManager : MonoBehaviour
         foreach (Cart cart in carts)
         {
             cart.ClearRequirements();
-            string value = BoxManager.Singleton.GetRandomDetailValue(theme);
+            string value = BoxManager.Singleton.GetRandomDetailValue(theme, true);
 
             while (values.Contains(value))
             {
-                value = BoxManager.Singleton.GetRandomDetailValue(theme);
+                value = BoxManager.Singleton.GetRandomDetailValue(theme, true);
             }
 
             values.Add(value);

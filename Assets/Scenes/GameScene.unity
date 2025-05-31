@@ -277,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67857825}
   - component: {fileID: 67857824}
+  - component: {fileID: 67857826}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -311,6 +312,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67857826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67857823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e059c8b97dea10d4a97e4732ac914c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateAction: {fileID: -4419527837557634228, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  inspectAction: {fileID: -4307241907434023209, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &159870215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,7 +2028,7 @@ MonoBehaviour:
   rotateRightButton: {fileID: 1762278683}
   shiftText: {fileID: 1194633592}
   shiftTimer: {fileID: 859228962}
-  money: {fileID: 725245393}
+  moneyUI: {fileID: 725245393}
 --- !u!1 &695389592
 GameObject:
   m_ObjectHideFlags: 0

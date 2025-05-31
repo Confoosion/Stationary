@@ -4,7 +4,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance { get; private set; }
+    public static UIManager Singleton { get; private set; }
 
     public Button rotateUpButton;
     public Button rotateDownButton;
@@ -12,13 +12,18 @@ public class UIManager : MonoBehaviour
     public Button rotateRightButton;
     public TextMeshProUGUI shiftText;
     public TextMeshProUGUI shiftTimer;
-    public TextMeshProUGUI money;
+    public TextMeshProUGUI moneyUI;
 
     void Awake()
     {
-        if (Instance == null)
+        if (Singleton == null)
         {
-            Instance = this;
+            Singleton = this;
         }
+    }
+
+    public void UpdateMoneyUI(int money)
+    {
+        moneyUI.SetText("$" + money.ToString());
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class InspectPackage : MonoBehaviour
 {
@@ -8,7 +9,20 @@ public class InspectPackage : MonoBehaviour
     public Box inspectedBox;
     public BoxFaces inspectedFace;
     private bool wantRotateShown = true;
+    private bool isInspecting = false;
     [SerializeField] private List<GameObject> packagesOnTable = new List<GameObject>();
+
+    void Awake()
+    {
+        PlayerKeybinds.Singleton.rotateAction.action.started += RotateKeybind;
+        PlayerKeybinds.Singleton.inspectAction.action.started += InspectKeybind;
+    }
+
+    void OnDisable()
+    {
+        PlayerKeybinds.Singleton.rotateAction.action.started -= RotateKeybind;
+        PlayerKeybinds.Singleton.inspectAction.action.started -= InspectKeybind;
+    }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -26,6 +40,18 @@ public class InspectPackage : MonoBehaviour
         }
     }
 
+    private void InspectKeybind(InputAction.CallbackContext ctx)
+    {
+        if (!isInspecting)
+        {
+            Inspect();
+        }
+        else
+        {
+            HideInspect();
+        }
+    }
+
     public void Inspect()
     {
         if (packagesOnTable.Count > 0 && !inspectCanvas.activeSelf)
@@ -36,6 +62,7 @@ public class InspectPackage : MonoBehaviour
             SetRotateUIVisibility();
 
             inspectCanvas.SetActive(true);
+            isInspecting = true;
             Debug.Log("Inspecting " + packagesOnTable[0]);
         }
     }
@@ -43,6 +70,7 @@ public class InspectPackage : MonoBehaviour
     public void HideInspect()
     {
         inspectCanvas.SetActive(false);
+        isInspecting = false;
         Debug.Log("Stopped inspecting");
     }
 
@@ -60,8 +88,32 @@ public class InspectPackage : MonoBehaviour
                 }
             }
         }
-        // Debug.Log(faceDetails[0]);
-        // Debug.Log(inspectedBox.data.boxDetails[inspectedFace]);
+    }
+
+    private void RotateKeybind(InputAction.CallbackContext ctx)
+    {
+        Debug.Log(ctx);
+        if (isInspecting)
+        {
+            Vector2 rotation = ctx.ReadValue<Vector2>();
+
+            if (rotation.x == 0 && rotation.y > 0)
+            {
+                RotateUp();
+            }
+            else if (rotation.x == 0 && rotation.y < 0)
+            {
+                RotateDown();
+            }
+            else if (rotation.x > 0 && rotation.y == 0)
+            {
+                RotateRight();
+            }
+            else if (rotation.x < 0 && rotation.y == 0)
+            {
+                RotateLeft();
+            }
+        }
     }
 
     public void RotateUp()
@@ -142,23 +194,23 @@ public class InspectPackage : MonoBehaviour
 
     public void SetRotateUIVisibility()
     {
-        UIManager.Instance.rotateLeftButton.gameObject.SetActive(wantRotateShown);
-        UIManager.Instance.rotateRightButton.gameObject.SetActive(wantRotateShown);
+        UIManager.Singleton.rotateLeftButton.gameObject.SetActive(wantRotateShown);
+        UIManager.Singleton.rotateRightButton.gameObject.SetActive(wantRotateShown);
 
         if (!wantRotateShown)
         {
             if (inspectedFace == BoxFaces.Top)
             {
-                UIManager.Instance.rotateUpButton.gameObject.SetActive(wantRotateShown);
+                UIManager.Singleton.rotateUpButton.gameObject.SetActive(wantRotateShown);
             }
             else
             {
-                UIManager.Instance.rotateDownButton.gameObject.SetActive(wantRotateShown);
+                UIManager.Singleton.rotateDownButton.gameObject.SetActive(wantRotateShown);
             }
             return;
         }
 
-        UIManager.Instance.rotateDownButton.gameObject.SetActive(wantRotateShown);
-        UIManager.Instance.rotateUpButton.gameObject.SetActive(wantRotateShown);
+        UIManager.Singleton.rotateDownButton.gameObject.SetActive(wantRotateShown);
+        UIManager.Singleton.rotateUpButton.gameObject.SetActive(wantRotateShown);
     }
 }

@@ -60,9 +60,9 @@ public class BoxManager : MonoBehaviour
         return data;
     }
 
-    public string GetRandomDetailValue(BoxDetailType type)
+    public string GetRandomDetailValue(BoxDetailType type, bool valueForCart = false)
     {
-        if (type != cartTheme)
+        if (type != cartTheme || valueForCart)
         {
             return type switch
             {

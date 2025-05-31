@@ -18,6 +18,7 @@ public class Cart : MonoBehaviour
         if (CheckRequirements(collider.GetComponent<Box>()))
         {
             Debug.Log("CORRECT!!!");
+            PlayerStats.Singleton.AddMoney(20);
         }
         else
         {
