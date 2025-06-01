@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton { get; private set; }
 
+    public int shift = 0;
     public int conveyorLevel = 1;
 
     void Awake()
@@ -14,17 +15,16 @@ public class GameManager : MonoBehaviour
             Singleton = this;
             DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public void StartNewShift()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        SceneManager.LoadScene("GameScene");
+        shift += 1;
     }
 
     public void GoToGameScene()
@@ -35,5 +35,20 @@ public class GameManager : MonoBehaviour
     public void GoToShopScene()
     {
         SceneManager.LoadScene("ShopScene");
+    }
+
+    public int GetShift()
+    {
+        return (shift);
+    }
+
+    public int GetConveyorLevel()
+    {
+        return (conveyorLevel);
+    }
+
+    public void UpgradeConveyorLevel()
+    {
+        conveyorLevel += 1;
     }
 }

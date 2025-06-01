@@ -16,13 +16,29 @@ public class WorldManager : MonoBehaviour
         {
             Singleton = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        UIManager.Singleton.UpdateMoneyUI(PlayerStats.Singleton.GetMoney());
+        NewShift();
     }
 
     public void NewShift()
     {
+        UIManager.Singleton.UpdateShiftUI(GameManager.Singleton.GetShift());
         requirementTheme = (BoxDetailType)(Random.Range(0, System.Enum.GetNames(typeof(BoxDetailType)).Length));
         Debug.Log(requirementTheme);
         SetNewRequirements(requirementTheme);
+    }
+
+    public void EndShift()
+    {
+        GameManager.Singleton.GoToShopScene();
     }
 
     // Should prob make this a coroutine cuz it can break if while loop is still going and then gets called again :/

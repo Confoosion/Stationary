@@ -4,6 +4,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Singleton { get; private set; }
 
+    [SerializeField]
     private int money;
 
     void Awake()
@@ -13,11 +14,15 @@ public class PlayerStats : MonoBehaviour
             Singleton = this;
             DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
-        SetMoney(20);
+        
     }
 
     public void SetMoney(int value)

@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public Button rotateLeftButton;
     public Button rotateRightButton;
     public TextMeshProUGUI shiftText;
+    public TextMeshProUGUI shiftUI;
     public TextMeshProUGUI shiftTimer;
     public TextMeshProUGUI moneyUI;
 
@@ -25,5 +26,10 @@ public class UIManager : MonoBehaviour
     public void UpdateMoneyUI(int money)
     {
         moneyUI.SetText("$" + money.ToString());
+    }
+
+    public void UpdateShiftUI(int shift)
+    {
+        shiftUI.SetText(shift.ToString());
     }
 }

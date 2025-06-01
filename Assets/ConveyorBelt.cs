@@ -6,7 +6,23 @@ public class ConveyorBelt : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        int conveyorLvl = GameManager.Singleton.GetConveyorLevel();
+        if (conveyorLvl == 1)
+        {
+            conveyorSpeed = 5f;
+        }
+        else if (conveyorLvl == 2)
+        {
+            conveyorSpeed = 10f;
+        }
+        else if (conveyorLvl == 3)
+        {
+            conveyorSpeed = 15f;
+        }
+        else
+        {
+            conveyorSpeed = 25f;
+        }
     }
 
     // Update is called once per frame
