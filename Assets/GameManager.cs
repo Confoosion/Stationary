@@ -5,8 +5,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton { get; private set; }
 
-    public int shift = 0;
-    public int conveyorLevel = 1;
+    [SerializeField] private int shift = 0;
+    [SerializeField] private int conveyorLevel = 1;
+    [SerializeField] private bool properPositioning = false;
 
     void Awake()
     {
@@ -50,5 +51,15 @@ public class GameManager : MonoBehaviour
     public void UpgradeConveyorLevel()
     {
         conveyorLevel += 1;
+    }
+
+    public bool CheckProperPositioning()
+    {
+        return (properPositioning);
+    }
+
+    public void UpgradeProperPositioning()
+    {
+        properPositioning = true;
     }
 }

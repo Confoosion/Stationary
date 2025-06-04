@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ed5317abb546dec42961aa125354004c
+guid: 1ec994fbc5f81a64680d218f971f8d98
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4164756259732944618
-    second: jake_icon_Layer 17_0
+      213: 7301584614222040624
+    second: jake_icon_Layer 3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jake_icon_Layer 17_0
+      name: jake_icon_Layer 3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 529
-        height: 545
+        width: 741
+        height: 572
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61988826f30d336c0800000000000000
-      internalID: -4164756259732944618
+      spriteID: 03e892c6580745560800000000000000
+      internalID: 7301584614222040624
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      jake_icon_Layer 17_0: -4164756259732944618
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,8 +8,6 @@ public class WorldManager : MonoBehaviour
     public List<Cart> carts = new List<Cart>();
     public BoxDetailType requirementTheme;
 
-
-
     void Awake()
     {
         if (Singleton == null)

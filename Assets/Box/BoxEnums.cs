@@ -20,5 +20,5 @@ public enum BoxShape
 
 public enum BoxTapePattern
 {
-    Straight, X, V, Diagonal, Cross
+    I, X, V, Slash, Backslash, T, H, Hourglass
 }

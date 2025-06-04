@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 public class InspectPackage : MonoBehaviour
 {
     public GameObject inspectCanvas;
+    public Transform BoxUI;
     public Box inspectedBox;
     public BoxFaces inspectedFace;
+    private BoxFaces previousInspectedFace;
     private bool wantRotateShown = true;
     private bool isInspecting = false;
     [SerializeField] private List<GameObject> packagesOnTable = new List<GameObject>();
@@ -76,6 +78,7 @@ public class InspectPackage : MonoBehaviour
 
     private void UpdateBoxFace()
     {
+        BoxDetailUI.Singleton.ShowFace(inspectedFace, previousInspectedFace);
         if (inspectedBox.data.boxDetails.ContainsKey(inspectedFace))
         {
             var faceDetails = inspectedBox.data.boxDetails[inspectedFace];
@@ -92,7 +95,7 @@ public class InspectPackage : MonoBehaviour
 
     private void RotateKeybind(InputAction.CallbackContext ctx)
     {
-        Debug.Log(ctx);
+        // Debug.Log(ctx);
         if (isInspecting)
         {
             Vector2 rotation = ctx.ReadValue<Vector2>();
@@ -118,36 +121,42 @@ public class InspectPackage : MonoBehaviour
 
     public void RotateUp()
     {
+        if (inspectedFace == BoxFaces.Top)
+        {
+            return;
+        }
+        
         if (inspectedFace == BoxFaces.Bottom)
         {
-            inspectedFace = BoxFaces.Front;
+            SetNewFace(BoxFaces.Front);
             wantRotateShown = !wantRotateShown;
         }
         else
         {
-            inspectedFace = BoxFaces.Top;
+            SetNewFace(BoxFaces.Top);
             wantRotateShown = !wantRotateShown;
         }
         SetRotateUIVisibility();
-        Debug.Log("Now looking at " + inspectedFace);
-        UpdateBoxFace();
     }
 
     public void RotateDown()
     {
+        if (inspectedFace == BoxFaces.Bottom)
+        {
+            return;
+        }
+
         if (inspectedFace == BoxFaces.Top)
         {
-            inspectedFace = BoxFaces.Front;
+            SetNewFace(BoxFaces.Front);
             wantRotateShown = !wantRotateShown;
         }
         else
         {
-            inspectedFace = BoxFaces.Bottom;
+            SetNewFace(BoxFaces.Bottom);
             wantRotateShown = !wantRotateShown;
         }
         SetRotateUIVisibility();
-        Debug.Log("Now looking at " + inspectedFace);
-        UpdateBoxFace();
     }
 
     public void RotateLeft()
@@ -155,20 +164,18 @@ public class InspectPackage : MonoBehaviour
         switch (inspectedFace)
         {
             case BoxFaces.Front:
-                inspectedFace = BoxFaces.Left;
+                SetNewFace(BoxFaces.Left);
                 break;
             case BoxFaces.Right:
-                inspectedFace = BoxFaces.Front;
+                SetNewFace(BoxFaces.Front);
                 break;
             case BoxFaces.Back:
-                inspectedFace = BoxFaces.Right;
+                SetNewFace(BoxFaces.Right);
                 break;
             case BoxFaces.Left:
-                inspectedFace = BoxFaces.Back;
+                SetNewFace(BoxFaces.Back);
                 break;
         }
-        Debug.Log("Now looking at " + inspectedFace);
-        UpdateBoxFace();
     }
 
     public void RotateRight()
@@ -176,18 +183,24 @@ public class InspectPackage : MonoBehaviour
         switch (inspectedFace)
         {
             case BoxFaces.Front:
-                inspectedFace = BoxFaces.Right;
+                SetNewFace(BoxFaces.Right);
                 break;
             case BoxFaces.Right:
-                inspectedFace = BoxFaces.Back;
+                SetNewFace(BoxFaces.Back);
                 break;
             case BoxFaces.Back:
-                inspectedFace = BoxFaces.Left;
+                SetNewFace(BoxFaces.Left);
                 break;
             case BoxFaces.Left:
-                inspectedFace = BoxFaces.Front;
+                SetNewFace(BoxFaces.Front);
                 break;
         }
+    }
+
+    private void SetNewFace(BoxFaces face)
+    {
+        previousInspectedFace = inspectedFace;
+        inspectedFace = face;
         Debug.Log("Now looking at " + inspectedFace);
         UpdateBoxFace();
     }
