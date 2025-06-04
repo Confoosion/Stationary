@@ -6,9 +6,11 @@ using System.Collections.Generic;
 public class BoxData
 {
     public Dictionary<BoxFaces, Dictionary<BoxDetailType, string>> boxDetails;
+    public Dictionary<string, GameObject> detailPositions;
 
     public BoxData()
     {
         boxDetails = new Dictionary<BoxFaces, Dictionary<BoxDetailType, string>>();
+        detailPositions = new Dictionary<string, GameObject>();
     }
 }

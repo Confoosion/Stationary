@@ -63,6 +63,8 @@ public class InspectPackage : MonoBehaviour
             wantRotateShown = true;
             SetRotateUIVisibility();
 
+            BoxDetailUI.Singleton.CreateUIFaces(inspectedBox);
+
             inspectCanvas.SetActive(true);
             isInspecting = true;
             Debug.Log("Inspecting " + packagesOnTable[0]);

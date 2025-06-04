@@ -6,13 +6,6 @@ public class BoxDetailUI : MonoBehaviour
 {
     public static BoxDetailUI Singleton { get; private set; }
 
-    public GameObject top;
-    public GameObject left;
-    public GameObject front;
-    public GameObject right;
-    public GameObject back;
-    public GameObject bottom;
-
     void Awake()
     {
         if (Singleton == null)
@@ -40,9 +33,24 @@ public class BoxDetailUI : MonoBehaviour
             {
                 if (faceDetails.TryGetValue(detailType, out string detail))
                 {
-                    Debug.Log(detail);
+                    if (detailType == BoxDetailType.TapePattern)
+                        DisplayDetail(UI_Face, detailType, detail);
                 }
             }
+
+        }
+    }
+
+    private void DisplayDetail(Transform faceParent, BoxDetailType detailType, string detail)
+    {
+        switch (detailType)
+        {
+            case BoxDetailType.TapePattern:
+                {
+                    ResourceManager.Singleton.TapeDesigns_BD.TryGetValue(detail.ToString(), out GameObject detailObject);
+                    Instantiate(detailObject, faceParent);
+                    break;
+                }
 
         }
     }
