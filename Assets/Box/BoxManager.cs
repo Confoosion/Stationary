@@ -106,8 +106,8 @@ public class BoxManager : MonoBehaviour
         {
             return type switch
             {
-                BoxDetailType.Barcode => Random.Range(1000, 9999).ToString(),
-                BoxDetailType.BoxID => Random.Range(0, 100).ToString(),
+                BoxDetailType.BC => Random.Range(1000, 9999).ToString(),
+                BoxDetailType.ID => Random.Range(0, 100).ToString(),
                 BoxDetailType.Color => ((BoxColor)Random.Range(0, System.Enum.GetNames(typeof(BoxColor)).Length)).ToString(),
                 BoxDetailType.Shape => ((BoxShape)Random.Range(0, System.Enum.GetNames(typeof(BoxShape)).Length)).ToString(),
                 BoxDetailType.TapePattern => ((BoxTapePattern)Random.Range(0, System.Enum.GetNames(typeof(BoxTapePattern)).Length)).ToString(),

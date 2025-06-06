@@ -327,10 +327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13a6d0ede922a04bbdc1193b67acf04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Colors_BD: []
-  Shapes_BD: []
-  Tags_BD: []
-  TapeDesigns_BD: []
 --- !u!1 &67857823
 GameObject:
   m_ObjectHideFlags: 0

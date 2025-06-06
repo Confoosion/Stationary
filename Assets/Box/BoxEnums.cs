@@ -5,7 +5,7 @@ public enum BoxFaces
 
 public enum BoxDetailType
 {
-    Barcode, BoxID, Color, Shape, TapePattern
+    BC, ID, Color, Shape, TapePattern
 }
 
 public enum BoxColor

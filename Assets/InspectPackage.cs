@@ -63,10 +63,21 @@ public class InspectPackage : MonoBehaviour
             wantRotateShown = true;
             SetRotateUIVisibility();
 
-            BoxDetailUI.Singleton.CreateUIFaces(inspectedBox);
+            if (!inspectedBox.data.generatedUI)
+            {   // Create UI face details if not already generated
+                BoxDetailUI.Singleton.CreateUIFaces(inspectedBox);
+            }
+            else
+            {   // Use already generated UI face details
+                BoxDetailUI.Singleton.UseCreatedUIFaces(inspectedBox);
+            }
 
             inspectCanvas.SetActive(true);
             isInspecting = true;
+
+            BoxDetailUI.Singleton.HideALLFaces();
+            BoxDetailUI.Singleton.ShowFace(inspectedFace, BoxFaces.Back);
+
             Debug.Log("Inspecting " + packagesOnTable[0]);
         }
     }
@@ -74,6 +85,7 @@ public class InspectPackage : MonoBehaviour
     public void HideInspect()
     {
         inspectCanvas.SetActive(false);
+        BoxDetailUI.Singleton.RemoveALLDetails();
         isInspecting = false;
         Debug.Log("Stopped inspecting");
     }
