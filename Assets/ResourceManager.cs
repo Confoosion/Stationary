@@ -39,6 +39,8 @@ public class ResourceManager : MonoBehaviour
             string BD_name = resourceArray[i].name;
             BD_name = BD_name.Replace("_BD", "");
 
+            Debug.Log("Adding: " + BD_name + " to Resources!");
+
             dictionary.Add(BD_name, resourceArray[i]);
         }
     }

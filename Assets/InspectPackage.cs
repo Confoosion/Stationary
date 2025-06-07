@@ -64,6 +64,7 @@ public class InspectPackage : MonoBehaviour
             SetRotateUIVisibility();
 
             inspectCanvas.SetActive(true);
+            isInspecting = true;
 
             if (!inspectedBox.data.generatedUI)
             {   // Create UI face details if not already generated
@@ -73,8 +74,6 @@ public class InspectPackage : MonoBehaviour
             {   // Use already generated UI face details
                 BoxDetailUI.Singleton.CreateUIFaces(inspectedBox, true);
             }
-
-            isInspecting = true;
 
             BoxDetailUI.Singleton.HideALLFaces();
             BoxDetailUI.Singleton.ShowFace(inspectedFace, BoxFaces.Back);
