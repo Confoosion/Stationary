@@ -8,13 +8,13 @@ public class BoxData
     // Holds the details of each face
     public Dictionary<BoxFaces, Dictionary<BoxDetailType, string>> boxDetails;
     // Holds the positions of each detail
-    public Dictionary<string, Vector2> detailPositions;
+    public Dictionary<BoxFaces, Dictionary<GameObject, Vector2>> detailPositions;
     public bool generatedUI;
 
     public BoxData()
     {
         boxDetails = new Dictionary<BoxFaces, Dictionary<BoxDetailType, string>>();
-        detailPositions = new Dictionary<string, Vector2>();
+        detailPositions = new Dictionary<BoxFaces, Dictionary<GameObject, Vector2>>();
         generatedUI = false;
     }
 }
