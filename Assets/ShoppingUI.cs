@@ -4,6 +4,7 @@ using TMPro;
 
 public class ShoppingUI : MonoBehaviour
 {
+    public TextMeshProUGUI conveyorUpgrade_Cost;
     public TextMeshProUGUI moneyUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

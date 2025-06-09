@@ -93,18 +93,18 @@ public class InspectPackage : MonoBehaviour
     private void UpdateBoxFace()
     {
         BoxDetailUI.Singleton.ShowFace(inspectedFace, previousInspectedFace);
-        if (inspectedBox.data.boxDetails.ContainsKey(inspectedFace))
-        {
-            var faceDetails = inspectedBox.data.boxDetails[inspectedFace];
+        // if (inspectedBox.data.boxDetails.ContainsKey(inspectedFace))
+        // {
+        //     var faceDetails = inspectedBox.data.boxDetails[inspectedFace];
 
-            foreach (BoxDetailType detailType in System.Enum.GetValues(typeof(BoxDetailType)))
-            {
-                if (faceDetails.TryGetValue(detailType, out string detail))
-                {
-                    Debug.Log(detail);
-                }
-            }
-        }
+        //     foreach (BoxDetailType detailType in System.Enum.GetValues(typeof(BoxDetailType)))
+        //     {
+        //         if (faceDetails.TryGetValue(detailType, out string detail))
+        //         {
+        //             Debug.Log(detail);
+        //         }
+        //     }
+        // }
     }
 
     private void RotateKeybind(InputAction.CallbackContext ctx)

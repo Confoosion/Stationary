@@ -13,22 +13,16 @@ public class ConveyorBelt : MonoBehaviour
         }
         else if (conveyorLvl == 2)
         {
-            conveyorSpeed = 10f;
+            conveyorSpeed = 9f;
         }
         else if (conveyorLvl == 3)
         {
-            conveyorSpeed = 15f;
+            conveyorSpeed = 14f;
         }
         else
         {
-            conveyorSpeed = 25f;
+            conveyorSpeed = 20f;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void OnTriggerStay2D(Collider2D collider)

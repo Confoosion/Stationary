@@ -12,13 +12,14 @@ public class CartRequirements
 public class Cart : MonoBehaviour
 {
     public List<CartRequirements> cartRequirements = new List<CartRequirements>();
+    public int cartPayout = 20;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (CheckRequirements(collider.GetComponent<Box>()))
         {
             Debug.Log("CORRECT!!!");
-            PlayerStats.Singleton.AddMoney(20);
+            PlayerStats.Singleton.AddMoney(cartPayout);
         }
         else
         {
