@@ -11,6 +11,7 @@ public class CartRequirements
 
 public class Cart : MonoBehaviour
 {
+    public char cartID;
     public List<CartRequirements> cartRequirements = new List<CartRequirements>();
     public int cartPayout = 20;
 

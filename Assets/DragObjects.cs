@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class DragObjects : MonoBehaviour
 {
-    public static DragObjects instance;
+    public static DragObjects Singleton;
 
     public LayerMask m_DragLayers;
 
@@ -16,9 +16,9 @@ public class DragObjects : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
+        if (Singleton == null)
         {
-            instance = this;
+            Singleton = this;
         }
     }
 

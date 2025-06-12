@@ -43,6 +43,7 @@ public class WorldManager : MonoBehaviour
     private void SetNewRequirements(BoxDetailType theme)
     {
         List<string> values = new List<string>();
+        char currentID = 'A';
 
         foreach (Cart cart in carts)
         {
@@ -57,9 +58,31 @@ public class WorldManager : MonoBehaviour
             values.Add(value);
             cart.AddRequirement(theme, value);
             Debug.Log(cart + " " + theme + " " + value);
+
+            // Set cartID (in order alphabetically [A-Z])
+            cart.cartID = currentID;
+            currentID++;
         }
 
         BoxManager.Singleton.RetrieveCartValues(requirementTheme, values);
     }
 
+    private void SetRandomCartID(Cart cart)
+    {
+        cart.cartID = (char)Random.Range(65, 91);   // Randomly pick from alphabet (A-Z)
+
+        foreach (Cart _cart in carts)
+        {
+            if (_cart == cart)
+            {
+                continue;
+            }
+
+            if (_cart.cartID == cart.cartID)
+            {   // Found a duplicate, must be unique so recursive call
+                SetRandomCartID(cart);
+                break;
+            }
+        }
+    }
 }
