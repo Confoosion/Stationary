@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour
         if (cart.cartID != chars[chars.Length - 1])     // If the cartID is different, change the paper UI
         {
             UpdatePaperUI(cart.cartID, cart.cartRequirements);
+            return;
         }
     }
 
@@ -66,7 +67,7 @@ public class UIManager : MonoBehaviour
         cartRequirementsText.SetText("");
         foreach (CartRequirements requirement in requirements)
         {
-            cartRequirementsText.SetText(cartRequirementsText + "- " + requirement.detailType.ToString() + ": " + requirement.value + "\n");
+            cartRequirementsText.SetText(cartRequirementsText.text + "- " + requirement.detailType.ToString() + ": " + requirement.value + "\n");
         }
 
         // cartRequirementsText.SetText(requirement);

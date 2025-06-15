@@ -17,6 +17,11 @@ public class Cart : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.gameObject.layer != LayerMask.NameToLayer("Draggable"))
+        {
+            return;
+        }
+        
         if (CheckRequirements(collider.GetComponent<Box>()))
         {
             Debug.Log("CORRECT!!!");

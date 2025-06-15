@@ -38,10 +38,17 @@ public class DragObjects : MonoBehaviour
                 return;
             }
 
-            if (collider.gameObject.layer == LayerMask.NameToLayer("PassThrough"))
+            // Clicked on Requirement Paper so no need to drag anything
+            if (collider.gameObject.layer == LayerMask.NameToLayer("RequirementPaper"))
             {
-                collider.gameObject.layer = LayerMask.NameToLayer("Draggable");
+                UIManager.Singleton.ShowPaperUI(collider.transform.parent.gameObject.GetComponent<Cart>());
+                return;
             }
+
+            if (collider.gameObject.layer == LayerMask.NameToLayer("PassThrough"))
+                {
+                    collider.gameObject.layer = LayerMask.NameToLayer("Draggable");
+                }
 
             // Fetch the collider body.
             var body = collider.GetComponent<Rigidbody2D>();

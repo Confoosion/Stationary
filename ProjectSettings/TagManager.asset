@@ -15,7 +15,7 @@ TagManager:
   - Draggable
   - PassThrough
   - Dragging
-  - 
+  - RequirementPaper
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: BoxLayer
     uniqueID: 2512165031
+    locked: 0
+  - name: EnvironmentUI
+    uniqueID: 3008090589
     locked: 0
   m_RenderingLayers:
   - Default
