@@ -3889,6 +3889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 887063199}
+  - component: {fileID: 887063202}
   - component: {fileID: 887063200}
   - component: {fileID: 887063201}
   m_Layer: 0
@@ -3937,6 +3938,7 @@ MonoBehaviour:
   - {fileID: 493974105}
   - {fileID: 37586731}
   requirementTheme: 0
+  startShiftTime: 60
 --- !u!114 &887063201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3954,6 +3956,20 @@ MonoBehaviour:
   boxParent: {fileID: 859330842}
   cartTheme: 0
   cartValues: []
+--- !u!114 &887063202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887063198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1df361b18627d140b0dacd013bc57b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownTimer: 0
+  pausedTime: 0
 --- !u!1 &892944592
 GameObject:
   m_ObjectHideFlags: 0

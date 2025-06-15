@@ -7,6 +7,7 @@ public class WorldManager : MonoBehaviour
     public static WorldManager Singleton { get; private set; }
     public List<Cart> carts = new List<Cart>();
     public BoxDetailType requirementTheme;
+    public float startShiftTime = 60f; // in Seconds
 
     void Awake()
     {
@@ -32,6 +33,10 @@ public class WorldManager : MonoBehaviour
         requirementTheme = (BoxDetailType)(Random.Range(0, System.Enum.GetNames(typeof(BoxDetailType)).Length));
         Debug.Log(requirementTheme);
         SetNewRequirements(requirementTheme);
+
+        // New shift time [ Uses equation: y = 5x^cos(5) + 60 ]
+        startShiftTime = 5 * Mathf.Pow(GameManager.Singleton.GetShift(), Mathf.Cos(5)) + 60;
+        GameTimer.Singleton.SetTimer(startShiftTime);
     }
 
     public void EndShift()

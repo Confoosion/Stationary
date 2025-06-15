@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49c427631d3c174e931dc421d971ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conveyorUpgrade_Cost: {fileID: 0}
+  conveyorUpgrade_Cost: {fileID: 259355746}
   moneyUI: {fileID: 597452393}
 --- !u!114 &181023269
 MonoBehaviour:

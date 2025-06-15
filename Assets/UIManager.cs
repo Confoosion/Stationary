@@ -43,6 +43,19 @@ public class UIManager : MonoBehaviour
         shiftUI.SetText(shift.ToString());
     }
 
+    public void UpdateTimerUI(int minutes, int seconds)
+    {
+        shiftTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        // if (minutes > 0)
+        // {
+        //     shiftTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        // }
+        // else
+        // {
+        //     shiftTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        // }
+    }
+
     public void ShowPaperUI(Cart cart)
     {
         paperUI.SetActive(true);

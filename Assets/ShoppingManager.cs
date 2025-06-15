@@ -15,7 +15,7 @@ public class ShoppingManager : MonoBehaviour
         {
             GameManager.Singleton.UpgradeConveyorLevel();
             Debug.Log("UPGRADED CONVEYOR!!!");
-            gameObject.GetComponent<ShoppingUI>().conveyorUpgrade_Cost.SetText((100 * GameManager.Singleton.GetConveyorLevel()).ToString());
+            gameObject.GetComponent<ShoppingUI>().conveyorUpgrade_Cost.SetText("$" + (100 * GameManager.Singleton.GetConveyorLevel()).ToString());
         }
         else
         {
