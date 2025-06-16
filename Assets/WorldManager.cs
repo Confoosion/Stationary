@@ -8,6 +8,8 @@ public class WorldManager : MonoBehaviour
     public List<Cart> carts = new List<Cart>();
     public BoxDetailType requirementTheme;
     public float startShiftTime = 60f; // in Seconds
+    public int boxesToSpawn = 5;
+    public float boxFrequency = 2.5f;
 
     void Awake()
     {
@@ -37,6 +39,13 @@ public class WorldManager : MonoBehaviour
         // New shift time [ Uses equation: y = 5x^cos(5) + 60 ]
         startShiftTime = 5 * Mathf.Pow(GameManager.Singleton.GetShift(), Mathf.Cos(5)) + 60;
         GameTimer.Singleton.SetTimer(startShiftTime);
+
+        // New amount of boxes spawning
+        // Amount of boxes equation [ y = 3x^cos(1) + 5 ]
+        boxesToSpawn = (int)(3f * Mathf.Pow(GameManager.Singleton.GetShift(), Mathf.Cos(1)) + 5);
+        // Spawn frequency equation [ y = 2.5 - 0.25x^0.3 ]
+        boxFrequency = 2.5f - 0.25f * Mathf.Pow(GameManager.Singleton.GetShift(), 0.3f);
+        BoxSpawning.Singleton.StartSpawningBoxes(boxesToSpawn, boxFrequency);
     }
 
     public void EndShift()

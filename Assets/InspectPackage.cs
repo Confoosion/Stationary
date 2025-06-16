@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -12,6 +13,10 @@ public class InspectPackage : MonoBehaviour
     private BoxFaces previousInspectedFace;
     private bool wantRotateShown = true;
     private bool isInspecting = false;
+    private Coroutine durabilityCountdown;
+    private float boxDurability = 100f;
+    private float boxDurabilityDecreaseRate;
+
     [SerializeField] private List<GameObject> packagesOnTable = new List<GameObject>();
 
     void Awake()
@@ -78,33 +83,50 @@ public class InspectPackage : MonoBehaviour
             BoxDetailUI.Singleton.HideALLFaces();
             BoxDetailUI.Singleton.ShowFace(inspectedFace, BoxFaces.Back);
 
+            // Start decreasing durability of the box
+            boxDurability = inspectedBox.data.durability;
+            boxDurabilityDecreaseRate = inspectedBox.data.durabilityDecreaseRate;
+            durabilityCountdown = StartCoroutine(ReduceBoxDurabilty()); // Start durability decrease coroutine
             Debug.Log("Inspecting " + packagesOnTable[0]);
         }
     }
 
     public void HideInspect()
     {
+        isInspecting = false;
+        if (durabilityCountdown != null)    // Stop durability from decreasing if it still is
+        {
+            StopCoroutine(durabilityCountdown);
+            durabilityCountdown = null;
+        }
         inspectCanvas.SetActive(false);
         BoxDetailUI.Singleton.RemoveALLDetails();
-        isInspecting = false;
         Debug.Log("Stopped inspecting");
+    }
+
+    private IEnumerator ReduceBoxDurabilty()
+    {
+        while (boxDurability > 0f)
+        {
+            boxDurability -= boxDurabilityDecreaseRate * Time.deltaTime;
+            inspectedBox.data.durability = (int)boxDurability;
+            UIManager.Singleton.UpdateDurabilityUI((int)boxDurability);
+
+            if (boxDurability <= 0)
+            {
+                // durabilityCountdown = null;
+                HideInspect();
+                Destroy(inspectedBox.gameObject);
+                yield break;
+            }
+
+            yield return null;
+        }
     }
 
     private void UpdateBoxFace()
     {
         BoxDetailUI.Singleton.ShowFace(inspectedFace, previousInspectedFace);
-        // if (inspectedBox.data.boxDetails.ContainsKey(inspectedFace))
-        // {
-        //     var faceDetails = inspectedBox.data.boxDetails[inspectedFace];
-
-        //     foreach (BoxDetailType detailType in System.Enum.GetValues(typeof(BoxDetailType)))
-        //     {
-        //         if (faceDetails.TryGetValue(detailType, out string detail))
-        //         {
-        //             Debug.Log(detail);
-        //         }
-        //     }
-        // }
     }
 
     private void RotateKeybind(InputAction.CallbackContext ctx)

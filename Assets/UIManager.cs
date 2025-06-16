@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     public Button rotateLeftButton;
     public Button rotateRightButton;
 
+    [Header("Inspect UI")]
+    public TextMeshProUGUI boxCondition;
+
     [Header("Environment UI")]
     public TextMeshProUGUI shiftText;
     public TextMeshProUGUI shiftUI;
@@ -46,14 +49,14 @@ public class UIManager : MonoBehaviour
     public void UpdateTimerUI(int minutes, int seconds)
     {
         shiftTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        // if (minutes > 0)
-        // {
-        //     shiftTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        // }
-        // else
-        // {
-        //     shiftTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        // }
+    }
+
+    public void UpdateDurabilityUI(int durability)
+    {
+        boxCondition.SetText(durability.ToString());
+        float t = durability / 100f;
+        Color durabilityColor = Color.Lerp(Color.red, Color.green, t);
+        boxCondition.color = durabilityColor;
     }
 
     public void ShowPaperUI(Cart cart)
