@@ -19,6 +19,6 @@ public class BoxData
         detailPositions = new Dictionary<BoxFaces, Dictionary<GameObject, Vector2>>();
         generatedUI = false;
         durability = 100;
-        durabilityDecreaseRate = 2f;
+        durabilityDecreaseRate = 10f;
     }
 }

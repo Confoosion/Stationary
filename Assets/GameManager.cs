@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton { get; private set; }
+    private bool properPositioning = false;
 
     [SerializeField] private int shift = 0;
+
+    [Header("UPGRADES")]
     [SerializeField] private int conveyorLevel = 1;
-    [SerializeField] private bool properPositioning = false;
+    public bool betterDurability = false;
 
     void Awake()
     {

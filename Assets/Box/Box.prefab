@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     generatedUI: 0
+    durability: 100
+    durabilityDecreaseRate: 10
 --- !u!61 &449339531005411646
 BoxCollider2D:
   m_ObjectHideFlags: 0
