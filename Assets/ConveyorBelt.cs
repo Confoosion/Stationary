@@ -13,15 +13,15 @@ public class ConveyorBelt : MonoBehaviour
         }
         else if (conveyorLvl == 2)
         {
-            conveyorSpeed = 9f;
+            conveyorSpeed = 8f;
         }
         else if (conveyorLvl == 3)
         {
-            conveyorSpeed = 14f;
+            conveyorSpeed = 11f;
         }
         else
         {
-            conveyorSpeed = 20f;
+            conveyorSpeed = 14f;
         }
     }
 

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("UPGRADES")]
     [SerializeField] private int conveyorLevel = 1;
     public bool betterDurability = false;
+    public bool boughtGloves = false;
 
     void Awake()
     {

@@ -106,7 +106,7 @@ public class InspectPackage : MonoBehaviour
 
     private IEnumerator ReduceBoxDurabilty()
     {
-        while (boxDurability > 0f)
+        while (boxDurability > 0f && boxDurabilityDecreaseRate > 0f)
         {
             boxDurability -= boxDurabilityDecreaseRate * Time.deltaTime;
             inspectedBox.data.durability = (int)boxDurability;
