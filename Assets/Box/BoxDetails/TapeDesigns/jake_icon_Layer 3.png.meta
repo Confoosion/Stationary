@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jake_icon_Layer 3_0: 7301584614222040624
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
