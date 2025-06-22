@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int shift = 0;
 
     [Header("UPGRADES")]
+    [SerializeField] List<Upgrade> appliedUpgrades = new();
     [SerializeField] private int conveyorLevel = 1;
     public bool betterDurability = false;
     public bool boughtGloves = false;
