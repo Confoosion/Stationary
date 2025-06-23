@@ -1196,6 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shift: 0
+  appliedUpgrades: []
   conveyorLevel: 1
   betterDurability: 0
   boughtGloves: 0
@@ -1238,6 +1239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174086b9f9e6f2f4b89881f4f13b496f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockedUpgrades:
+  - {fileID: 11400000, guid: 4d3d769bd44d22b4a9ac3f252bc2a9b0, type: 2}
+  unlockedUpgrades: []
 --- !u!1 &597452391
 GameObject:
   m_ObjectHideFlags: 0

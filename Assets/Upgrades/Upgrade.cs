@@ -6,5 +6,5 @@ public abstract class Upgrade : ScriptableObject
     public string upgradeDescription;
     public int upgradeCost;
 
-    public abstract void ApplyUpgrade();
+    public abstract void ApplyUpgrade(GameManager gameManager);
 }

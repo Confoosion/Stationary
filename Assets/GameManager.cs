@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int shift = 0;
 
     [Header("UPGRADES")]
-    [SerializeField] List<Upgrade> appliedUpgrades = new();
+    public List<Upgrade> appliedUpgrades = new();
     [SerializeField] private int conveyorLevel = 1;
     public bool betterDurability = false;
     public bool boughtGloves = false;
