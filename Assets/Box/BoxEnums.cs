@@ -22,3 +22,8 @@ public enum BoxTapePattern
 {
     I, X, V, Slash, Backslash, Plus, H, Hourglass
 }
+
+public enum UpgradeTier
+{
+    None, Bronze, Silver, Gold, Diamond
+}

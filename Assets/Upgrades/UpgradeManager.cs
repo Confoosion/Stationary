@@ -4,8 +4,11 @@ using System.Collections.Generic;
 public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager Singleton { get; private set; }
-    public List<Upgrade> lockedUpgrades = new List<Upgrade>();
-    public List<Upgrade> unlockedUpgrades = new List<Upgrade>();
+    public List<UpgradeDefinition> lockedUpgrades = new List<UpgradeDefinition>();
+    public List<UpgradeDefinition> unlockedUpgrades = new List<UpgradeDefinition>();
+
+    [Header("Upgrade Effects")]
+    public float boxDecayRate = 10f;
 
     void Awake()
     {
@@ -15,7 +18,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    public void UnlockUpgrade(Upgrade upgrade)
+    public void UnlockUpgrade(UpgradeDefinition upgrade)
     {
         upgrade.ApplyUpgrade(GameManager.Singleton);
         lockedUpgrades.Remove(upgrade);

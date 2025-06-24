@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f65d9c110e94b44e8f7e79c0ced255a, type: 3}
-  m_Name: BetterDurability
+  m_Script: {fileID: 11500000, guid: 2e4bfeda3bb94c44b89ac33fced473d4, type: 3}
+  m_Name: Gloves_0
   m_EditorClassIdentifier: 
-  upgradeName: Better Durability
-  upgradeDescription: Box durability decreases less
-  upgradeCost: 150
-  durabilityBoost: 4
+  decayRate: 8

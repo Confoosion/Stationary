@@ -1,10 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public abstract class Upgrade : ScriptableObject
+[System.Serializable]
+public class Upgrade
 {
+    public UpgradeTier upgradeTier;
     public string upgradeName;
     public string upgradeDescription;
-    public int upgradeCost;
+    public string upgradeCost;
 
-    public abstract void ApplyUpgrade(GameManager gameManager);
+    public List<UpgradeEffect> effects = new();
 }
