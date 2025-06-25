@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+// ResourceManager takes care of all of the files in the Resources folder
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Singleton { get; private set; }
@@ -23,7 +24,7 @@ public class ResourceManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     void Start()
     {
         InitializeBD(Colors_BD, Resources.LoadAll<GameObject>("Colors"));

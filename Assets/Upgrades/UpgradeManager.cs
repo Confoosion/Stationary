@@ -9,6 +9,8 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("Upgrade Effects")]
     public float boxDecayRate = 10f;
+    public float conveyorSpeed = 5f;
+    public bool visibleRequirements = false;
 
     void Awake()
     {

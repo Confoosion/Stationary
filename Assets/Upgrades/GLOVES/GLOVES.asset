@@ -10,40 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b325170e415628499cd976f17ff3700, type: 3}
-  m_Name: New Upgrade Definition
+  m_Name: GLOVES
   m_EditorClassIdentifier: 
-  theUpgradeName: 
-  theUpgradeDescription: 
-  theUpgradeCost: 0
+  theUpgradeName: Gloves
+  theUpgradeDescription: The box durability decreases less when inspecting.
+  theUpgradeCost: 150
   currentTier: 0
   upgradeTiers:
   - upgradeTier: 0
-    upgradeName: 
-    upgradeDescription: 
-    upgradeCost: 
+    upgradeCost: 150
     effects:
     - {fileID: 11400000, guid: 03b5ee04941ffe749b975270a4347898, type: 2}
   - upgradeTier: 1
-    upgradeName: 
-    upgradeDescription: 
-    upgradeCost: 
+    upgradeCost: 300
     effects:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: bb729aa76f9bdca4aaf80be77aca5284, type: 2}
   - upgradeTier: 2
-    upgradeName: 
-    upgradeDescription: 
-    upgradeCost: 
+    upgradeCost: 450
     effects:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 53883e956b8da394a9d471f6513483fd, type: 2}
   - upgradeTier: 3
-    upgradeName: 
-    upgradeDescription: 
-    upgradeCost: 
+    upgradeCost: 600
     effects:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: a992f94c8664c334192d864e44e30699, type: 2}
   - upgradeTier: 4
-    upgradeName: 
-    upgradeDescription: 
-    upgradeCost: 
+    upgradeCost: 1000
     effects:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: a5eeca77af6418d4281e31a277f50ad1, type: 2}
